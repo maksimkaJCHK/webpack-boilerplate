@@ -20,6 +20,7 @@ module.exports = merge(common, services, {
     publicPath: '/js/'
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
     new webpack.HotModuleReplacementPlugin(),
   ]
 })

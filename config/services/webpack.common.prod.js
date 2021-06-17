@@ -21,9 +21,9 @@ module.exports = {
     })],
     splitChunks: {
       chunks: 'async',
-      minSize: 200000,
+      minSize: 270000,
       minRemainingSize: 0,
-      maxSize: 0,
+      maxSize: 500000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -33,7 +33,7 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name(module, chunks, cacheGroupKey) {
-           const allChunksNames = chunks.map((item) => item.name).join('-');
+            const allChunksNames = chunks.map((item) => item.name).join('-');
             return `common`;
           },
           chunks: 'all'

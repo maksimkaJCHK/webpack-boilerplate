@@ -1,9 +1,10 @@
 const { merge } = require('webpack-merge')
+const webpack = require('webpack')
 const common = require('./services/webpack.common.js')
+const webpackProdConfug = require('./services/webpack.common.prod.js');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpackProdConfug = require('./services/webpack.common.prod.js');
 
 module.exports = merge(common, webpackProdConfug, {
   performance: {
@@ -82,6 +83,7 @@ module.exports = merge(common, webpackProdConfug, {
         template: 'templates/index.twig',
         inject: false
       },
-    )
+    ),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
   ],
 })
