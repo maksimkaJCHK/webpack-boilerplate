@@ -1,4 +1,4 @@
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -23,7 +23,7 @@ module.exports = {
       chunks: 'async',
       minSize: 200000,
       minRemainingSize: 0,
-      maxSize: 0,
+      maxSize: 500000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -51,4 +51,4 @@ module.exports = {
       }
     }
   },
-}
+};

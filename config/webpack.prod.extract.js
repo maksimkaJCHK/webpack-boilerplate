@@ -1,11 +1,12 @@
-const { merge } = require('webpack-merge')
-const common = require('./services/webpack.common.js')
+const { merge } = require('webpack-merge');
+const webpack = require('webpack');
+const common = require('./services/webpack.common.js');
+const webpackCommonProd = require('./services/webpack.common.prod.js');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpackProdConfug = require('./services/webpack.common.prod.js');
 
-module.exports = merge(common, webpackProdConfug, {
+module.exports = merge(common, webpackCommonProd, {
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
@@ -13,6 +14,11 @@ module.exports = merge(common, webpackProdConfug, {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules)/,
+        loader: "ts-loader",
+      },
       {
         test: /\.js|.jsx?$/,
         exclude: /(node_modules)/,
@@ -72,6 +78,7 @@ module.exports = merge(common, webpackProdConfug, {
     ]
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
     new MiniCssExtractPlugin({
       filename: '../css/[name].css',
       chunkFilename: '[id].css',

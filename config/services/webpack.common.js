@@ -1,8 +1,11 @@
-const paths = require('./paths')
+const paths = require('./paths');
 
 module.exports = {
   entry: {
-    main: [paths.src + '/index.js']
+    main: [paths.src + '/index.tsx'],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
     path: paths.build,

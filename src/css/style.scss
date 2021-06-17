@@ -8,6 +8,40 @@ body {
   max-width: 1500px;
   padding: 0 20px;
 }
-.brd {
-  border-radius: 50%;
+
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  font: 16px/130% tahoma;
+  .button,
+  button {
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 3px;
+    background-color: #555;
+    border: none;
+    display: inline-block;
+    font: 16px/120% tahoma;
+  }
+}
+
+.exampleForm {
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    color: #000;
+    padding: 10px 15px;
+    font: 16px/120% tahoma;
+    border-radius: 5px;
+    border: 1px solid #000;
+  }
+  &-row {
+    margin: 15px 0;
+  }
+}
+
+.exampleAfterFormText {
+  margin: 20px 0;
 }

@@ -14,12 +14,11 @@ module.exports = merge(common, services, {
     open: true,
     compress: true,
     hot: true,
-    watchContentBase: true,
     port: 8080,
-    liveReload: true,
     publicPath: '/js/'
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
     new webpack.HotModuleReplacementPlugin(),
   ]
 })
