@@ -5,10 +5,10 @@ module.exports = {
   plugins: {
     'postcss-import': {},
     'postcss-cssnext': {
-      'warnForDuplicates': false
+      warnForDuplicates: false
     },
-    'cssnano': {},
-    'autoprefixer': {
+    cssnano: {},
+    autoprefixer: {
       overrideBrowserslist: ['last 2 versions'],
     }
   }

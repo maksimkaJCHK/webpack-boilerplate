@@ -7,6 +7,16 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
+        test: /\.coffee$/,
+        loader: "coffee-loader",
+        options: {
+          bare: false,
+          transpile: {
+            presets: ["@babel/env", "@babel/preset-react"],
+          },
+        },
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',

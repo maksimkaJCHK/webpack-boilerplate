@@ -19,6 +19,16 @@ module.exports = merge(common, webpackProdConfug, {
         use: ["babel-loader"]
       },
       {
+        test: /\.coffee$/,
+        loader: "coffee-loader",
+        options: {
+          bare: false,
+          transpile: {
+            presets: ["@babel/env", "@babel/preset-react"],
+          },
+        },
+      },
+      {
         test: /\.css$/,
         exclude: /(node_modules)/,
         use: [
