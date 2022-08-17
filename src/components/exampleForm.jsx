@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addFullName } from '../store/actions/actions';
+import { addFullName } from 'actions/actions';
 
 const ExampleForm = () => {
   let [formParam, setFormParam] = useState({ name: '', lastName: ''});

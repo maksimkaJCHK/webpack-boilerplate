@@ -1,4 +1,4 @@
-import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG  } from '../const/const';
+import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG  } from 'const/const';
 
 export const addFullName = (name, lastName) => {
   return {
@@ -15,7 +15,6 @@ export const loadDog = () => {
 }
 
 export const addDog = ({ message, error }) => {
-
   return {
     type: ADD_DOG,
     img: message,

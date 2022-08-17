@@ -1,13 +1,15 @@
 import React from 'react';
-import ExampleForm from './exampleForm.jsx';
-import ExampleAfterFormText from './exampleAfterFormText.jsx';
-import RandomDog from './randomDog.jsx';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from '../store/reducers/rootReducer';
-import rootSaga from '../store/saga/rootSaga';
+
+import ExampleForm from 'components/exampleForm.jsx';
+import ExampleAfterFormText from 'components/exampleAfterFormText.jsx';
+import RandomDog from 'components/randomDog.jsx';
+
+import rootReducer from 'reducers/rootReducer';
+import rootSaga from 'saga/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));

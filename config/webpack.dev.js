@@ -1,26 +1,55 @@
-const paths = require('./services/paths')
+const paths = require('./services/paths');
 
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const common = require('./services/webpack.common.js')
-const services = require('./services/webpack.services.js')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
 
-module.exports = merge(common, services, {
+const common = require('./services/webpack.common.js');
+
+const env_variables = require('./services/env_variables.js');
+
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    historyApiFallback: true,
-    contentBase: paths.public,
-    open: true,
-    compress: true,
     hot: true,
-    watchContentBase: true,
+    static: {
+      directory: paths.public,
+      watch: true,
+      publicPath: '',
+    },
+    watchFiles: {
+      paths: [
+        'src/**/*.js',
+        'src/*.js',
+      ],
+      options: {
+        usePolling: false,
+      },
+    },
+    devMiddleware: {
+      index: true,
+      mimeTypes: {
+        phtml: 'text/html'
+      },
+      serverSideRender: true,
+      writeToDisk: true,
+    },
+    client: {
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
+      logging: 'error',
+      progress: true,
+    },
+    historyApiFallback: true,
+    compress: true,
     port: 8080,
+    open: true,
     liveReload: true,
-    publicPath: '/js/'
   },
+}, {
   plugins: [
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.EnvironmentPlugin(env_variables)
   ]
 })

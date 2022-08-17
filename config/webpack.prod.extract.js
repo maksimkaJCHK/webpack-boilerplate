@@ -1,77 +1,29 @@
-const { merge } = require('webpack-merge')
-const webpack = require('webpack')
-const common = require('./services/webpack.common.js')
-const webpackProdConfug = require('./services/webpack.common.prod.js');
+const { merge } = require('webpack-merge');
+const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const common = require('./services/webpack.common.js');
+const webpackProdConfug = require('./services/webpack.common.prod.js');
+
+const env_variables = require('./services/env_variables.js');
+
+// Меняю use со style-loader на MiniCssExtractPlugin.loader для css, scss, less файлов
+
+common.module.rules[3].use[0] = MiniCssExtractPlugin.loader;
+common.module.rules[4].use[0] = MiniCssExtractPlugin.loader;
+common.module.rules[5].use[0] = MiniCssExtractPlugin.loader;
+
+common.module.rules.push({
+  test: /\.twig$/,
+  use: [
+    'raw-loader',
+    'twig-html-loader'
+  ]
+});
+
 module.exports = merge(common, webpackProdConfug, {
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js|.jsx?$/,
-        exclude: /(node_modules)/,
-        use: ["babel-loader"]
-      },
-      {
-        test: /\.css$/,
-        exclude: /(node_modules)/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: "postcss-loader",
-            options: {
-              config: {path: 'postcss.config.js'},
-            }
-          }
-        ]
-      }, {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-          },
-          "sass-loader" 
-        ]
-      }, {
-        test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-          },
-          "less-loader" 
-        ]
-      }, {
-        test: /\.twig$/,
-        use: [
-          'raw-loader',
-          'twig-html-loader'
-        ]
-      }, {
-        test: /\.(png|jpg|gif|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              esModule: false,
-            },
-          },
-        ],
-      }
-    ]
-  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '../css/[name].css',
@@ -84,6 +36,6 @@ module.exports = merge(common, webpackProdConfug, {
         inject: false
       },
     ),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'DOMAIN', 'RANDOM_DOG']),
+    new webpack.EnvironmentPlugin(env_variables),
   ],
 })

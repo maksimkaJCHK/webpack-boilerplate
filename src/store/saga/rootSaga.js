@@ -1,7 +1,7 @@
 import { call, put, takeEvery, takeLatest, select, all } from 'redux-saga/effects';
-import { LOAD_DOG } from '../const/const';
-import getDog from '../../api/getDog';
-import { addDog } from '../actions/actions';
+import { LOAD_DOG } from 'const/const';
+import getDog from 'api/getDog';
+import { addDog } from 'actions/actions';
 
 function* initialSaga() {
   console.log('Приложение загружено');

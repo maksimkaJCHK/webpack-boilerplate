@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG } from '../const/const';
+import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG } from 'const/const';
 
 const reducerForm = (state = { name: '', lastName: '' }, action) => {
   switch(action.type) {
