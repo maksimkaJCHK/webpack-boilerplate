@@ -19,6 +19,10 @@ module.exports = merge(common, {
         'src/**/**/*.js',
         'src/**/*.js',
         'src/*.js',
+        // jsx
+        'src/**/**/*.jsx',
+        'src/**/*.jsx',
+        'src/*.jsx',
         // coffee
         'src/**/**/*.coffee',
         'src/**/*.coffee',
