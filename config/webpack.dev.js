@@ -19,8 +19,29 @@ module.exports = merge(common, {
     },
     watchFiles: {
       paths: [
+        'src/**/**/*.js',
         'src/**/*.js',
         'src/*.js',
+        // jsx
+        'src/**/**/*.jsx',
+        'src/**/*.jsx',
+        'src/*.jsx',
+        // coffee
+        'src/**/**/*.coffee',
+        'src/**/*.coffee',
+        'src/*.coffee',
+        // less
+        'src/**/**/*.less',
+        'src/**/*.less',
+        'src/*.less',
+        // scss
+        'src/**/**/*.scss',
+        'src/**/*.scss',
+        'src/*.scss',
+        // css
+        'src/**/**/*.css',
+        'src/**/*.css',
+        'src/*.css',
       ],
       options: {
         usePolling: false,

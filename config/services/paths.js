@@ -1,7 +1,8 @@
-const path = require('path')
+const path = require('path');
+const appRoot = require('app-root-path');
 
 module.exports = {
-  src: path.resolve(__dirname, '../../src'), 
-  public: path.resolve(__dirname, '../../public'),
-  build: path.resolve(__dirname, '../../public/js')
+  src: path.resolve(appRoot.path, 'src'), 
+  public: path.resolve(appRoot.path, 'public'),
+  build: path.resolve(appRoot.path, 'public/js')
 }
