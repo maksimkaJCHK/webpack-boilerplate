@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import list from './helpers/example.coffee';
-import './css/style.scss';
-import './css/style.less';
+import list from 'helpers/example.coffee';
+import 'styles/style.scss';
+import 'styles/style.less';
 
 const node = document.getElementById('app');
 const root = ReactDOM.createRoot(node);
@@ -18,4 +18,4 @@ const Primer = (props) => {
   );
 }
 
-root.render(<Primer name="Максим" />);
+root.render(<Primer name="максим" />);

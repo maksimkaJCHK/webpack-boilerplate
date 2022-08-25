@@ -3,9 +3,8 @@ const paths = require('./services/paths')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const common = require('./services/webpack.common.js')
-const services = require('./services/webpack.services.js')
 
-module.exports = merge(common, services, {
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -17,8 +16,25 @@ module.exports = merge(common, services, {
     },
     watchFiles: {
       paths: [
+        'src/**/**/*.js',
         'src/**/*.js',
         'src/*.js',
+        // coffee
+        'src/**/**/*.coffee',
+        'src/**/*.coffee',
+        'src/*.coffee',
+        // less
+        'src/**/**/*.less',
+        'src/**/*.less',
+        'src/*.less',
+        // scss
+        'src/**/**/*.scss',
+        'src/**/*.scss',
+        'src/*.scss',
+        // css
+        'src/**/**/*.css',
+        'src/**/*.css',
+        'src/*.css',
       ],
       options: {
         usePolling: false,
@@ -46,7 +62,4 @@ module.exports = merge(common, services, {
     open: true,
     liveReload: true,
   },
-  // plugins: [
-  //   new webpack.HotModuleReplacementPlugin(),
-  // ]
 })
