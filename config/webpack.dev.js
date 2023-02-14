@@ -1,8 +1,11 @@
-const paths = require('./services/paths')
+const paths = require('./services/paths');
 
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const common = require('./services/webpack.common.js')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+
+const common = require('./services/webpack.common.js');
+
+const env_variables = require('./services/env_variables.js');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -66,4 +69,8 @@ module.exports = merge(common, {
     open: true,
     liveReload: true,
   },
+}, {
+  plugins: [
+    new webpack.EnvironmentPlugin(env_variables)
+  ]
 })

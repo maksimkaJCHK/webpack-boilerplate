@@ -1,5 +1,7 @@
 const path = require('path');
-const paths = require('./paths');
+
+const paths = require('./paths')
+const pathToSrc = require('app-root-path');
 
 module.exports = {
   entry: {
@@ -9,17 +11,24 @@ module.exports = {
     path: paths.build,
     filename: '[name].js',
   },
-  //target: ['web', 'es5'],
-  target: 'web',
+  target: ['web', 'es5'],
+  //target: 'web'
   resolve: {
     extensionAlias: {
       '.js': ['.js', 'jsx', '.coffee'],
     },
     extensions: ['.js', '.jsx', '.coffee'],
     alias: {
-      src: path.resolve(paths.src),
-      styles: path.resolve(paths.src, 'styles'),
-      helpers: path.resolve(paths.src, 'helpers'),
+      src: path.resolve(pathToSrc.path, 'src/'),
+      components: path.resolve(pathToSrc.path, 'src/components/'),
+      store: path.resolve(pathToSrc.path, 'src/store/'),
+      actions: path.resolve(pathToSrc.path, 'src/store/actions/'),
+      const: path.resolve(pathToSrc.path, 'src/store/const/'),
+      reducers: path.resolve(pathToSrc.path, 'src/store/reducers/'),
+      saga:path.resolve( pathToSrc.path, 'src/store/saga/'),
+      api: path.resolve(pathToSrc.path, 'src/api/'),
+      css: path.resolve(pathToSrc.path, 'src/css/'),
+      helpers: path.resolve(pathToSrc.path, 'src/helpers/'),
     },
   },
   module: {
@@ -47,7 +56,9 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              config: {path: 'postcss.config.js'},
+              config: {
+                path: 'postcss.config.js'
+              },
             }
           }
         ]
