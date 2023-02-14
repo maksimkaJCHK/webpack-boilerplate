@@ -27,7 +27,7 @@ module.exports = {
       reducers: path.resolve(pathToSrc.path, 'src/store/reducers/'),
       saga:path.resolve( pathToSrc.path, 'src/store/saga/'),
       api: path.resolve(pathToSrc.path, 'src/api/'),
-      css: path.resolve(pathToSrc.path, 'src/css/'),
+      styles: path.resolve(pathToSrc.path, 'src/styles/'),
       helpers: path.resolve(pathToSrc.path, 'src/helpers/'),
     },
   },

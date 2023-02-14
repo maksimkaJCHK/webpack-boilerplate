@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
 import ExampleForm from 'components/exampleForm.jsx';
@@ -12,7 +12,12 @@ import rootReducer from 'reducers/rootReducer';
 import rootSaga from 'saga/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
-let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+//const store = configureStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+});
+
 sagaMiddleware.run(rootSaga);
 
 const App = () => {

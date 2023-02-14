@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG } from 'const/const';
+import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG, ERROR_IN_LOAD_DOG } from 'const/const';
 
 const reducerForm = (state = { name: '', lastName: '' }, action) => {
   switch(action.type) {
@@ -26,7 +26,13 @@ const dogReducer = (state = { error: false, load: false, img: '' }, action) => {
         ...state,
         load: false,
         img: action.img,
-        error: action.error
+        error: false,
+      }
+    case ERROR_IN_LOAD_DOG:
+      return {
+        ...state,
+        load: false,
+        error: true,
       }
     default:
       return state

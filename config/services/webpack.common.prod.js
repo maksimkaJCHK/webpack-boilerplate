@@ -26,7 +26,7 @@ module.exports = {
     })],
     splitChunks: {
       chunks: 'async',
-      minSize: 200000,
+      minSize: 280000,
       minRemainingSize: 0,
       maxSize: 500000,
       minChunks: 1,
