@@ -1,4 +1,4 @@
-import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG, ERROR_IN_LOAD_DOG } from 'const/const';
+import { ADD_FULL_NAME, LOAD_DOG, ADD_DOG, ERROR_IN_LOAD_DOG } from '@const/const';
 
 export const addFullName = (name, lastName) => {
   return {

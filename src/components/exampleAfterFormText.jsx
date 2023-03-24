@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import bName from 'helpers/helpers'
+import bName from '@helpers/helpers'
 
 const ExampleAfterFormText = () => {
   let { name, lastName} = useSelector(state => state.reducerForm );

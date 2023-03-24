@@ -5,11 +5,12 @@ const pathToSrc = require('app-root-path');
 
 module.exports = {
   entry: {
-    main: [paths.src + '/index.js']
+    main: [paths.src + '/app.js']
   },
   output: {
     path: paths.build,
     filename: '[name].js',
+    clean: true,
   },
   target: ['web', 'es5'],
   //target: 'web'
@@ -19,16 +20,16 @@ module.exports = {
     },
     extensions: ['.js', '.jsx', '.coffee'],
     alias: {
-      src: path.resolve(pathToSrc.path, 'src/'),
-      components: path.resolve(pathToSrc.path, 'src/components/'),
-      store: path.resolve(pathToSrc.path, 'src/store/'),
-      actions: path.resolve(pathToSrc.path, 'src/store/actions/'),
-      const: path.resolve(pathToSrc.path, 'src/store/const/'),
-      reducers: path.resolve(pathToSrc.path, 'src/store/reducers/'),
-      saga:path.resolve( pathToSrc.path, 'src/store/saga/'),
-      api: path.resolve(pathToSrc.path, 'src/api/'),
-      styles: path.resolve(pathToSrc.path, 'src/styles/'),
-      helpers: path.resolve(pathToSrc.path, 'src/helpers/'),
+      '@src': path.resolve(pathToSrc.path, 'src/'),
+      '@components': path.resolve(pathToSrc.path, 'src/components/'),
+      '@store': path.resolve(pathToSrc.path, 'src/store/'),
+      '@actions': path.resolve(pathToSrc.path, 'src/store/actions/'),
+      '@const': path.resolve(pathToSrc.path, 'src/store/const/'),
+      '@reducers': path.resolve(pathToSrc.path, 'src/store/reducers/'),
+      '@saga':path.resolve( pathToSrc.path, 'src/store/saga/'),
+      '@api': path.resolve(pathToSrc.path, 'src/api/'),
+      '@styles': path.resolve(pathToSrc.path, 'src/styles/'),
+      '@helpers': path.resolve(pathToSrc.path, 'src/helpers/'),
     },
   },
   module: {

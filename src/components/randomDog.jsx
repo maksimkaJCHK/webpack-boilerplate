@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadDog } from 'actions/actions';
+
+import { loadDog } from '@actions/actions';
 
 const RandomDog = () => {
   let { error, load, img } = useSelector(state => state.dogReducer);

@@ -1,5 +1,5 @@
-import api from 'api/api.js';
+import api from '@api/api.js';
 
-const getDog = () => api(`${process.env.RANDOM_DOG}`);
+const getDog = () => api.get(`${process.env.RANDOM_DOG}`);
 
 export default getDog;
