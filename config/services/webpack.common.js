@@ -3,7 +3,7 @@ const paths = require('./paths');
 
 module.exports = {
   entry: {
-    main: [paths.src + '/index.js']
+    main: [paths.src + '/app.js']
   },
   output: {
     path: paths.build,
@@ -17,9 +17,9 @@ module.exports = {
     },
     extensions: ['.js', '.jsx', '.coffee'],
     alias: {
-      src: path.resolve(paths.src),
-      styles: path.resolve(paths.src, 'styles'),
-      helpers: path.resolve(paths.src, 'helpers'),
+      '@src': path.resolve(paths.src),
+      '@styles': path.resolve(paths.src, 'styles'),
+      '@helpers': path.resolve(paths.src, 'helpers'),
     },
   },
   module: {
