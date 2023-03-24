@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: '[name].js',
+    clean: true,
   },
   //target: ['web', 'es5'],
   target: 'web',
